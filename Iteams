@@ -1,0 +1,10 @@
+namespace POS
+{
+    public class Iteams
+    {
+        public int Id;
+        public string Iteam;
+        public int Prices;
+
+    }
+}
