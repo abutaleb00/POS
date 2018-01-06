@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+
+namespace POS
+{
+    public class PosOop
+    {
+        private List<Iteams> Item = new List<Iteams>();
+        private Dictionary<int, int> TotalItem = new Dictionary<int, int>();
+
+        public void DefaultValues()
+        {
+            Item.Add(new Iteams() {Id = 1, Iteam = "Pen", Prices = 5});
+            Item.Add(new Iteams() {Id = 2, Iteam = "Shirt", Prices = 100});
+            Item.Add(new Iteams() {Id = 3, Iteam = "Cap", Prices = 50});
+
+            for (int i = 0; i < Item.Count; i++)
+            {
+                TotalItem.Add(Item[i].Id,1);
+                
+            }
+        }
+
+        public void ProductShow()
+        {
+            Console.WriteLine("ID \tIteam \tPrice");
+            Console.WriteLine("-- \t----- \t-----");
+            foreach (var item in Item)
+            {
+                Console.WriteLine(item.Id+ "\t" + item.Iteam + "\t" + item.Prices +"\n");
+  
+            }
+        }
+
+        public void CustomerChoice()
+        {
+            ProductShow();
+
+            Console.WriteLine("Press 0 to proceed checkout and 1 to Exit ");
+            var Choice = Convert.ToInt32(Console.ReadLine());
+
+            if (Choice == 0)
+            {
+                CustomerBuy();
+            }
+            else if (Choice ==1)
+            {
+                Exit();
+            }
+            else
+            {
+                Console.WriteLine("Worng Choice! Please Try Again");
+                ProductShow();
+            }
+        }
+
+        public void CustomerBuy()
+        {
+            Console.WriteLine("Please enter item to buy");
+
+        }
+
+        public void Exit()
+        {
+            Console.WriteLine("You Are now Exit");
+        }
+
+
+    }
+}
